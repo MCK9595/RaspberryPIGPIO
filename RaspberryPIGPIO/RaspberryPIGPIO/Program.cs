@@ -17,7 +17,7 @@ namespace RaspberryPIGPIO
             Console.WriteLine($"{pinNum}を付けたり消したりします。");
             // 物理のPIN位置を指定
             GpioController controller = new GpioController(PinNumberingScheme.Board);
-            controller.OpenPin(pinNum, PinMode.Input);
+            controller.OpenPin(pinNum, PinMode.Output);
 
             try
             {
