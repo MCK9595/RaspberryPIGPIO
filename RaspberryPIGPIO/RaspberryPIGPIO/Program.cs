@@ -25,9 +25,11 @@ namespace RaspberryPIGPIO
                 {
                     // 電気を流す
                     controller.Write(pinNum, PinValue.High);
+                    Console.WriteLine($"{pinNum}をHighにしました。");
                     Thread.Sleep(lightTime);
                     // 電気を消す
                     controller.Write(pinNum, PinValue.Low);
+                    Console.WriteLine($"{pinNum}をLowにしました。");
                     Thread.Sleep(lightTime);
                 }
             }catch(Exception ex)
