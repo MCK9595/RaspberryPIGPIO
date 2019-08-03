@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaspberryPIGPIO", "RaspberryPIGPIO\RaspberryPIGPIO.csproj", "{1823C456-573D-4999-8ADA-15D7DAA5624A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RaspberryPIGPIO", "RaspberryPIGPIO\RaspberryPIGPIO.csproj", "{1823C456-573D-4999-8ADA-15D7DAA5624A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RaspberryPIGPIO.DHT11Run", "RaspberryPIGPIO.DHT11Run\RaspberryPIGPIO.DHT11Run.csproj", "{5EFBEAD5-F3FE-47D9-B9BA-EFD61CC3086A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1823C456-573D-4999-8ADA-15D7DAA5624A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1823C456-573D-4999-8ADA-15D7DAA5624A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1823C456-573D-4999-8ADA-15D7DAA5624A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFBEAD5-F3FE-47D9-B9BA-EFD61CC3086A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFBEAD5-F3FE-47D9-B9BA-EFD61CC3086A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFBEAD5-F3FE-47D9-B9BA-EFD61CC3086A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFBEAD5-F3FE-47D9-B9BA-EFD61CC3086A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
