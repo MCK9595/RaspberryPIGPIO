@@ -1,4 +1,5 @@
-﻿using Iot.Units;
+﻿using Iot.Device.DHTxx;
+using Iot.Units;
 using System;
 
 namespace RaspberryPIGPIO.DHT11Run
