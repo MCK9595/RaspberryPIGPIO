@@ -8,7 +8,7 @@ namespace RaspberryPIGPIO.DHT11Run
     {
         static void Main(string[] args)
         {
-            using(Dht11 dht=new Dht11(4))
+            using (Dht11 dht = new Dht11(7, System.Device.Gpio.PinNumberingScheme.Board))
             {
                 Temperature temperature = dht.Temperature;
                 double humidity = dht.Humidity;
