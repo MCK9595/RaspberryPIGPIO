@@ -1,28 +1,61 @@
 ﻿using System;
 using System.Device.Gpio;
+using System.Threading.Tasks;
 
 namespace RaspberryPIGPIO.DHT11Run
 {
     class Program
     {
-        static void Main(string[] args)
+        static async System.Threading.Tasks.Task Main(string[] args)
         {
-            int pinNum = 7;
-            GpioController controller = new GpioController(PinNumberingScheme.Board);
-            controller.OpenPin(pinNum, PinMode.Input);
+            try
+            {
+                int pinNum = 7;
+                int loopCount = 10000;
+                GpioController controller = new GpioController(PinNumberingScheme.Board);
+                controller.OpenPin(pinNum);
+                // 対象のPinをHighにする
+                controller.SetPinMode(pinNum, PinMode.Output);
+                controller.Write(pinNum, PinValue.Low);
+                await Task.Delay(20);
+                controller.Write(pinNum, PinValue.High);
+                await Task.Delay(30);
 
-            var a = controller.Read(pinNum);
+                controller.SetPinMode(pinNum, PinMode.InputPullUp);
+                var count = loopCount;
 
-            Console.WriteLine($"{a}");
+                // 正常性チェック・・・？
+                while (controller.Read(pinNum) == PinValue.Low)
+                {
+                    if (count-- == 0)
+                    {
+                        Console.WriteLine($"{loopCount}回Highが続いたので、終了します。");
+                        return;
+                    }
+                }
 
-            // 今は使えないので、コメントアウト
-            //using (Dht11 dht = new Dht11(7, System.Device.Gpio.PinNumberingScheme.Board))
-            //{
-            //    Temperature temperature = dht.Temperature;
-            //    double humidity = dht.Humidity;
+                count = loopCount;
+                while (controller.Read(pinNum) == PinValue.High)
+                {
+                    if (count-- == 0)
+                    {
+                        Console.WriteLine($"{loopCount}回Highが続いたので、終了します。");
+                        return;
+                    }
+                }
 
-            //    Console.WriteLine($"気温:{temperature.Celsius}度\t湿度:{humidity}パーセント");
-            //}
+                // 今は使えないので、コメントアウト
+                //using (Dht11 dht = new Dht11(7, System.Device.Gpio.PinNumberingScheme.Board))
+                //{
+                //    Temperature temperature = dht.Temperature;
+                //    double humidity = dht.Humidity;
+
+                //    Console.WriteLine($"気温:{temperature.Celsius}度\t湿度:{humidity}パーセント");
+                //}
+            }catch(Exception ex)
+            {
+                Console.WriteLine($"エラー発生:{ex.Message}");
+            }
         }
     }
 }
