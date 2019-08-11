@@ -11,7 +11,7 @@ namespace RaspberryPIGPIO.DHT11Run
             try
             {
                 int pinNum = 7;
-                int loopCount = 10000;
+                int loopCount = 100000;
                 GpioController controller = new GpioController(PinNumberingScheme.Board);
                 controller.OpenPin(pinNum);
                 // 対象のPinをHighにする
